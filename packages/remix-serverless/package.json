@@ -1,0 +1,22 @@
+{
+  "name": "@remix-run/serverless",
+  "description": "AWS Lambda Proxy server request handler for Remix",
+  "version": "1.4.3",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remix-run/remix",
+    "directory": "packages/remix-serverless"
+  },
+  "bugs": {
+    "url": "https://github.com/remix-run/remix/issues"
+  },
+  "dependencies": {
+    "@remix-run/node": "1.4.3",
+    "@types/aws-lambda": "^8.10.82"
+  },
+  "devDependencies": {
+    "@types/lambda-tester": "^3.6.1",
+    "lambda-tester": "^4.0.1"
+  }
+}

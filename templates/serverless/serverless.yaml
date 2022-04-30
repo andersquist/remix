@@ -1,0 +1,62 @@
+service: remix
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-s3-sync
+  - serverless-apigateway-service-proxy
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-north-1
+
+custom:
+  s3Sync:
+    - bucketNameKey: AssetsBucketKey
+      localDir: public
+  apiGatewayServiceProxies:
+    - s3:
+        path: /_static/{path+}
+        method: get
+        action: GetObject
+        bucket:
+          Ref: AssetsBucket
+        key:
+          pathParam: path
+
+package:
+  patterns:
+    - "!.cache/**"
+    - "!public/**"
+    - "!app/**"
+    - "!server.js"
+    - "!yarn.lock"
+    - "!remix.*"
+    - "!package.json"
+    - "!tsconfig.json"
+    - "!.eslintrc"
+    - "!app.arc"
+    - "!README.md"
+
+functions:
+  server:
+    handler: ./server/index.handler
+    memorySize: 1152
+    timeout: 30
+    events:
+      - http:
+          method: any
+          path: /{proxy+}
+      - http:
+          method: any
+          path: /
+
+resources:
+  Resources:
+    AssetsBucket:
+      Type: AWS::S3::Bucket
+
+  Outputs:
+    AssetsBucketKey:
+      Value: !Ref AssetsBucket

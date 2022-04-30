@@ -11,6 +11,7 @@ let examplesDir = path.resolve(rootDir, "examples");
 let remixPackages = {
   adapters: [
     "architect",
+    "serverless",
     "cloudflare-pages",
     "cloudflare-workers",
     "express",

@@ -1,0 +1,37 @@
+{
+  "name": "remix-template-serverless",
+  "private": true,
+  "description": "",
+  "license": "",
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix build",
+    "dev:remix": "remix watch",
+    "deploy": "remix build && sls deploy"
+  },
+  "dependencies": {
+    "@remix-run/node": "*",
+    "@remix-run/react": "*",
+    "@remix-run/serverless": "*",
+    "cross-env": "^7.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remix-mount-routes": "^0.1.3"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "*",
+    "@remix-run/eslint-config": "*",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "eslint": "^8.11.0",
+    "npm-run-all": "^4.1.5",
+    "serverless": "^3.16.0",
+    "serverless-apigateway-service-proxy": "^2.1.0",
+    "serverless-s3-sync": "^3.0.0",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "version": "0.0.0"
+}

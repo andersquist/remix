@@ -47,6 +47,7 @@ async function run() {
     "cloudflare-workers",
     "node", // publish node before node servers
     "architect",
+    "serverless",
     "express", // publish express before serve
     "vercel",
     "netlify",

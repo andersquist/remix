@@ -668,6 +668,7 @@ function getAdapterConfig(adapterName) {
 function remixServerAdapters() {
   return [
     ...getAdapterConfig("architect"),
+    ...getAdapterConfig("serverless"),
     ...getAdapterConfig("cloudflare-pages"),
     ...getAdapterConfig("cloudflare-workers"),
     ...getAdapterConfig("express"),
